@@ -1,0 +1,56 @@
+{
+  "downloadAppBanner": {
+    "label": "All your greetings in one app",
+    "description": "Download Mesaje din Suflet for free from the App Store or Google Play and send heartfelt messages anytime, anywhere."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About the App",
+    "howItWorks": "How It Works"
+  },
+  "footer": {
+    "copyright": "mesajedinsuflet.com 2025. All rights reserved.",
+    "termsAndConditions": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "contactUs": "Contact Us"
+  },
+  "home": {
+    "seeMore": "Learn More",
+    "title": "Share messages straight from the heart",
+    "slogan": "Browse beautiful greetings and send them to the people who matter most",
+    "howItWorks": {
+      "title": "How does it work?",
+      "description": "Sharing a heartfelt message is easy. Get started in just a few minutes:",
+      "features": "<li><strong>Install the app</strong>: download Mesaje din Suflet for free from the App Store or Google Play.</li><li><strong>Browse greetings</strong>: explore hundreds of beautiful messages for every occasion.</li><li><strong>Personalize</strong>: add your own touch to make the message truly yours.</li><li><strong>Send with love</strong>: share directly with your loved ones in seconds.</li>"
+    }
+  },
+  "landing": {
+    "apply": {
+      "contactUs": "Contact Us",
+      "ourEmail": "Email",
+      "phone": "Phone",
+      "socialMedia": "Social Media",
+      "name": "Name",
+      "email": "Email",
+      "message": "Tell us how we can help",
+      "submitSuccess": "Message received. We'll get back to you soon.",
+      "loading": "Sending...",
+      "submit": "Send",
+      "agreeTerms": "I agree to the Privacy Policy and consent to the processing of my data in accordance with the ",
+      "agreeTermsSuffix": ", which I have read and accepted.",
+      "privacyPolicy": "Privacy Policy"
+    }
+  },
+  "notFound": {
+    "label": "Page not found"
+  },
+  "contactUs": {
+    "title": "Get in touch",
+    "description": "We're here to help. Fill out the form and we'll get back to you soon.",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "loading": "Sending...",
+    "submitSuccess": "Message received. We'll be in touch shortly."
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "downloadAppBanner": {
+    "label": "Toate urările tale într-o singură aplicație",
+    "description": "Descarcă Mesaje din Suflet gratuit din App Store sau Google Play și trimite mesaje cu drag oricând, oriunde."
+  },
+  "navigation": {
+    "home": "Acasă",
+    "about": "Despre aplicație",
+    "howItWorks": "Cum funcționează"
+  },
+  "footer": {
+    "copyright": "mesajedinsuflet.com 2025. Toate drepturile rezervate.",
+    "termsAndConditions": "Termeni de utilizare",
+    "privacyPolicy": "Politica de confidențialitate",
+    "contactUs": "Contactează-ne"
+  },
+  "home": {
+    "seeMore": "Află mai mult",
+    "title": "Trimite mesaje din inimă",
+    "slogan": "Descoperă urări frumoase și trimite-le celor dragi",
+    "howItWorks": {
+      "title": "Cum funcționează?",
+      "description": "Simplu și rapid. Poți începe în doar câteva minute:",
+      "features": "<li><strong>Instalează aplicația</strong>: descarcă Mesaje din Suflet gratuit din App Store sau Google Play.</li><li><strong>Explorează urările</strong>: sute de mesaje frumoase pentru orice ocazie.</li><li><strong>Personalizează</strong>: adaugă o notă personală pentru a face mesajul cu adevărat al tău.</li><li><strong>Trimite cu drag</strong>: împărtășește-l cu cei dragi în câteva secunde.</li>"
+    }
+  },
+  "landing": {
+    "apply": {
+      "contactUs": "Contactează-ne",
+      "ourEmail": "Adresă de email",
+      "phone": "Telefon",
+      "socialMedia": "Rețele sociale",
+      "name": "Nume",
+      "email": "Adresă de email",
+      "message": "Spune-ne cum te putem ajuta",
+      "submitSuccess": "Mesajul a fost primit. Te vom contacta în curând.",
+      "loading": "Se trimite...",
+      "submit": "Trimite",
+      "agreeTerms": "Sunt de acord cu Politica de confidențialitate și îmi exprim acordul pentru procesarea datelor mele conform ",
+      "agreeTermsSuffix": ", pe care am citit-o și acceptat-o.",
+      "privacyPolicy": "Politicii de confidențialitate"
+    }
+  },
+  "notFound": {
+    "label": "Pagina nu a fost găsită"
+  },
+  "contactUs": {
+    "title": "Contactează-ne",
+    "description": "Suntem aici să te ajutăm. Completează formularul și te vom contacta în cel mai scurt timp.",
+    "email": "Adresă de email",
+    "message": "Mesaj",
+    "submit": "Trimite",
+    "loading": "Se trimite...",
+    "submitSuccess": "Mesajul a fost primit. Te vom contacta în curând."
+  }
+}
