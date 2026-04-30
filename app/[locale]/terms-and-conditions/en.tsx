@@ -26,9 +26,12 @@ export default function TermsAndConditionsEn() {
           Thank you for using Mesaje din Suflet! These Terms and Conditions
           ("Terms") govern your use of the Mesaje din Suflet mobile application
           ("the App"), made available by{" "}
-          <strong className="light">Pipe Digital SRL</strong>, IDNO 1024600085215,
-          mun. Chișinău, e-mail:{" "}
-          <a href="mailto:contact@pipedigital.md">contact@pipedigital.md</a>.
+          <strong className="light">Pipe Digital SRL</strong>, IDNO
+          1024600085215, mun. Chișinău, e-mail:{" "}
+          <a href="mailto:contact@mesajedinsuflet.app">
+            contact@mesajedinsuflet.app
+          </a>
+          .
         </p>
         <p>
           By using the App, you confirm that you have read, understood, and
@@ -63,8 +66,8 @@ export default function TermsAndConditionsEn() {
         </ul>
         <p>
           Greeting card content is loaded from Pipe Digital SRL's servers when
-          the App is opened. No account creation or login is required to use
-          the App.
+          the App is opened. No account creation or login is required to use the
+          App.
         </p>
 
         <h2>Access and use of the Application</h2>
@@ -82,9 +85,7 @@ export default function TermsAndConditionsEn() {
           notice. We accept no liability for the unavailability of the App,
           regardless of cause or duration.
         </p>
-        <p>
-          App content may be updated periodically without prior notice.
-        </p>
+        <p>App content may be updated periodically without prior notice.</p>
 
         <h2>Prohibited use</h2>
 
@@ -93,9 +94,7 @@ export default function TermsAndConditionsEn() {
           accordance with these Terms. The following are prohibited:
         </p>
         <ul>
-          <li>
-            Using the App for illegal, fraudulent, or harmful purposes.
-          </li>
+          <li>Using the App for illegal, fraudulent, or harmful purposes.</li>
           <li>
             Attempting unauthorised access to the App's servers or technical
             infrastructure.
@@ -105,8 +104,8 @@ export default function TermsAndConditionsEn() {
             defamatory, discriminatory, or illegal context.
           </li>
           <li>
-            Any action that affects the functionality, security, or integrity
-            of the App.
+            Any action that affects the functionality, security, or integrity of
+            the App.
           </li>
         </ul>
         <p>
@@ -183,9 +182,7 @@ export default function TermsAndConditionsEn() {
             platforms) accessed through or in connection with the App.
           </li>
         </ul>
-        <p>
-          Use of the App is at the user's own risk.
-        </p>
+        <p>Use of the App is at the user's own risk.</p>
 
         <h2>External links</h2>
 
@@ -212,7 +209,10 @@ export default function TermsAndConditionsEn() {
         <p>
           For any questions or concerns regarding these Terms and Conditions,
           you can reach us at:{" "}
-          <a href="mailto:contact@pipedigital.md">contact@pipedigital.md</a>.
+          <a href="mailto:contact@mesajedinsuflet.app">
+            contact@mesajedinsuflet.app
+          </a>
+          .
         </p>
         <p>
           If you wish to report issues related to your rights as a user or
@@ -222,7 +222,11 @@ export default function TermsAndConditionsEn() {
         <ul>
           <li>
             Website:{" "}
-            <a href="https://consumator.gov.md/rom" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://consumator.gov.md/rom"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               https://consumator.gov.md/rom
             </a>
           </li>

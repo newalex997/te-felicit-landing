@@ -2026,6 +2026,10 @@ button.large,
 	font-size: 0.8em;
 }
 
+.button.submit-form {
+	background-color: transparent;
+}
+
 input[type="submit"].primary,
 input[type="reset"].primary,
 input[type="button"].primary,
@@ -2363,10 +2367,6 @@ input[type="radio"]+label {
 
 	&.disclaimer {
 		font-size: 0.75em;
-
-		& a {
-			color: #01a081;
-		}
 	}
 }
 

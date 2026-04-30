@@ -26,9 +26,12 @@ export default function TermsAndConditionsRo() {
           Vă mulțumim că folosiți Mesaje din Suflet! Acești Termeni și Condiții
           („Termeni") guvernează utilizarea aplicației mobile Mesaje din Suflet
           („Aplicația"), pusă la dispoziție de{" "}
-          <strong className="light">Pipe Digital SRL</strong>, IDNO 1024600085215,
-          mun. Chișinău, e-mail:{" "}
-          <a href="mailto:contact@pipedigital.md">contact@pipedigital.md</a>.
+          <strong className="light">Pipe Digital SRL</strong>, IDNO
+          1024600085215, mun. Chișinău, e-mail:{" "}
+          <a href="mailto:contact@mesajedinsuflet.app">
+            contact@mesajedinsuflet.app
+          </a>
+          .
         </p>
         <p>
           Prin utilizarea Aplicației, confirmați că ați citit, înțeles și
@@ -55,8 +58,8 @@ export default function TermsAndConditionsRo() {
             felicitare direct în Aplicație.
           </li>
           <li>
-            Selectarea unui context tematic (sărbătoare sau stare de spirit)
-            din antetul Aplicației, pentru a adapta conținutul cardului.
+            Selectarea unui context tematic (sărbătoare sau stare de spirit) din
+            antetul Aplicației, pentru a adapta conținutul cardului.
           </li>
           <li>
             Exportarea cardului personalizat ca imagine (fișier JPG) și
@@ -65,19 +68,19 @@ export default function TermsAndConditionsRo() {
           </li>
         </ul>
         <p>
-          Conținutul cardurilor de felicitare este încărcat de pe serverele
-          Pipe Digital SRL la deschiderea Aplicației. Nu este necesară
-          crearea unui cont sau autentificarea pentru a utiliza Aplicația.
+          Conținutul cardurilor de felicitare este încărcat de pe serverele Pipe
+          Digital SRL la deschiderea Aplicației. Nu este necesară crearea unui
+          cont sau autentificarea pentru a utiliza Aplicația.
         </p>
 
         <h2>Accesul și utilizarea Aplicației</h2>
 
         <p>
           Aplicația este disponibilă gratuit pentru orice utilizator, indiferent
-          de vârstă. Accesul la Aplicație necesită o conexiune la internet pentru
-          încărcarea conținutului cardurilor de felicitare. Costurile conexiunii
-          la internet sunt suportate exclusiv de utilizator, conform tarifelor
-          operatorului de telecomunicații ales.
+          de vârstă. Accesul la Aplicație necesită o conexiune la internet
+          pentru încărcarea conținutului cardurilor de felicitare. Costurile
+          conexiunii la internet sunt suportate exclusiv de utilizator, conform
+          tarifelor operatorului de telecomunicații ales.
         </p>
         <p>
           Ne rezervăm dreptul de a modifica, suspenda sau întrerupe accesul la
@@ -98,8 +101,8 @@ export default function TermsAndConditionsRo() {
         </p>
         <ul>
           <li>
-            Utilizarea Aplicației în scopuri ilegale, frauduloase sau
-            dăunătoare terților.
+            Utilizarea Aplicației în scopuri ilegale, frauduloase sau dăunătoare
+            terților.
           </li>
           <li>
             Tentativele de acces neautorizat la serverele sau infrastructura
@@ -123,9 +126,9 @@ export default function TermsAndConditionsRo() {
 
         <p>
           Tot conținutul disponibil în Aplicație — inclusiv mesajele de
-          felicitare, textele, stilurile vizuale, designul grafic și codul
-          sursă — este creat cu ajutorul inteligenței artificiale sau de echipa
-          Pipe Digital SRL și reprezintă proprietatea exclusivă a{" "}
+          felicitare, textele, stilurile vizuale, designul grafic și codul sursă
+          — este creat cu ajutorul inteligenței artificiale sau de echipa Pipe
+          Digital SRL și reprezintă proprietatea exclusivă a{" "}
           <strong className="light">Pipe Digital SRL</strong>, protejată de
           legislația privind drepturile de autor și proprietatea intelectuală
           aplicabilă.
@@ -147,17 +150,17 @@ export default function TermsAndConditionsRo() {
 
         <p>
           Aplicația afișează reclame banner furnizate de rețele de publicitate
-          terțe, cel mai probabil Google Ads (Google AdMob). Pipe Digital SRL
-          nu este responsabilă pentru conținutul reclamelor afișate, acestea
-          fiind responsabilitatea exclusivă a rețelelor de publicitate terțe.
+          terțe, cel mai probabil Google Ads (Google AdMob). Pipe Digital SRL nu
+          este responsabilă pentru conținutul reclamelor afișate, acestea fiind
+          responsabilitatea exclusivă a rețelelor de publicitate terțe.
         </p>
         <p>
           Rețelele de publicitate pot colecta automat date anonime de pe
           dispozitivul utilizatorului (identificatori publicitari, tip
-          dispozitiv, sistem de operare) în scopul afișării de reclame relevante.
-          Aceste date sunt guvernate de politicile de confidențialitate ale
-          furnizorilor respectivi. Utilizatorii pot limita urmărirea
-          publicitară din setările dispozitivului.
+          dispozitiv, sistem de operare) în scopul afișării de reclame
+          relevante. Aceste date sunt guvernate de politicile de
+          confidențialitate ale furnizorilor respectivi. Utilizatorii pot limita
+          urmărirea publicitară din setările dispozitivului.
         </p>
         <p>
           Includerea reclamelor nu implică nicio aprobare sau afiliere a Pipe
@@ -167,10 +170,10 @@ export default function TermsAndConditionsRo() {
         <h2>Limitarea răspunderii</h2>
 
         <p>
-          Aplicația și conținutul acesteia sunt oferite „ca atare", fără garanții
-          de orice natură, explicite sau implicite. Pipe Digital SRL nu garantează
-          că Aplicația va fi disponibilă în permanență, fără erori sau
-          întreruperi.
+          Aplicația și conținutul acesteia sunt oferite „ca atare", fără
+          garanții de orice natură, explicite sau implicite. Pipe Digital SRL nu
+          garantează că Aplicația va fi disponibilă în permanență, fără erori
+          sau întreruperi.
         </p>
         <p>
           În limita permisă de legislația aplicabilă, Pipe Digital SRL nu
@@ -186,9 +189,8 @@ export default function TermsAndConditionsRo() {
             terți.
           </li>
           <li>
-            Funcționarea serviciilor terțe (rețele de publicitate, platforme
-            de distribuire) accesate prin intermediul sau în legătură cu
-            Aplicația.
+            Funcționarea serviciilor terțe (rețele de publicitate, platforme de
+            distribuire) accesate prin intermediul sau în legătură cu Aplicația.
           </li>
         </ul>
         <p>
@@ -209,10 +211,11 @@ export default function TermsAndConditionsRo() {
 
         <p>
           Ne rezervăm dreptul de a modifica acești Termeni și Condiții oricând.
-          Orice modificare va intra în vigoare la publicarea versiunii actualizate,
-          identificată prin noua dată de intrare în vigoare. Continuarea utilizării
-          Aplicației după publicarea modificărilor constituie acceptarea noilor
-          Termeni și Condiții. Vă recomandăm să consultați periodic această pagină.
+          Orice modificare va intra în vigoare la publicarea versiunii
+          actualizate, identificată prin noua dată de intrare în vigoare.
+          Continuarea utilizării Aplicației după publicarea modificărilor
+          constituie acceptarea noilor Termeni și Condiții. Vă recomandăm să
+          consultați periodic această pagină.
         </p>
 
         <h2>Contact</h2>
@@ -220,7 +223,10 @@ export default function TermsAndConditionsRo() {
         <p>
           Pentru orice întrebări sau sesizări legate de acești Termeni și
           Condiții, ne puteți contacta la adresa de e-mail:{" "}
-          <a href="mailto:contact@pipedigital.md">contact@pipedigital.md</a>.
+          <a href="mailto:contact@mesajedinsuflet.app">
+            contact@mesajedinsuflet.app
+          </a>
+          .
         </p>
         <p>
           În cazul în care doriți să raportați aspecte legate de drepturile
@@ -231,7 +237,11 @@ export default function TermsAndConditionsRo() {
         <ul>
           <li>
             Pagina web:{" "}
-            <a href="https://consumator.gov.md/rom" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://consumator.gov.md/rom"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               https://consumator.gov.md/rom
             </a>
           </li>

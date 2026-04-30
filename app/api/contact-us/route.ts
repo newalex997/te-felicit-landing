@@ -1,28 +1,59 @@
 import { NextRequest, NextResponse } from "next/server";
-import api from "@/app/common/axios";
+
+async function sendTelegramMessage(text: string) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: chatId, text, parse_mode: "HTML" }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Telegram error: ${res.status}`);
+  }
+}
+
+function validateContactForm(
+  name: string,
+  email: string,
+  message: string,
+): string | null {
+  if (!name || !email || !message) return "All fields are required";
+  if (name.length > 100) return "Name is too long";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "Invalid email address";
+  if (message.length > 2000) return "Message is too long";
+  return null;
+}
 
 export async function POST(req: NextRequest) {
-  if (req.method !== "POST") {
-    throw new Error("Method not allowed");
-  }
-
   try {
     const formData = await req.formData();
-    const locale = formData.get("locale");
+    const name = (formData.get("name") as string)?.trim();
+    const email = (formData.get("email") as string)?.trim();
+    const message = (formData.get("message") as string)?.trim();
 
-    const response = await api.post(`users/contact-us?lang=${locale}`, {
-      email: formData.get("email"),
-      fullName: formData.get("name"),
-      message: formData.get("message"),
-    });
+    const validationError = validateContactForm(name, email, message);
+    if (validationError) {
+      return NextResponse.json(
+        { error: { message: validationError } },
+        { status: 400 },
+      );
+    }
 
-    return NextResponse.json(response.data, {
-      status: response.status,
-    });
+    await sendTelegramMessage(
+      `<b>New Contact Form Submission</b>\n\n` +
+        `<b>Name:</b> ${name}\n` +
+        `<b>Email:</b> ${email}\n` +
+        `<b>Message:</b>\n${message}`,
+    );
+
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: any) {
     return NextResponse.json(
-      { error: error.response.data },
-      { status: error.response.status }
+      { error: { message: "Failed to send message" } },
+      { status: 500 },
     );
   }
 }

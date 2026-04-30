@@ -302,7 +302,9 @@ window.onload = function () {
       });
 
       var $image = section.querySelector(".image");
+      if (!$image) return;
       var $img = $image.querySelector("img");
+      if (!$img) return;
 
       $image.style.backgroundImage = "url(" + $img.getAttribute("src") + ")";
       var position = $img.dataset.position;

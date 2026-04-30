@@ -65,9 +65,9 @@ export default function PrivacyPolicyEn() {
             Detecting technical problems and resolving them quickly.
           </li>
           <li>
-            <strong className="light">Developing new features.</strong>{" "}
-            Making informed decisions about future improvements to the App
-            based on anonymous usage patterns.
+            <strong className="light">Developing new features.</strong> Making
+            informed decisions about future improvements to the App based on
+            anonymous usage patterns.
           </li>
         </ul>
         <p>
@@ -109,8 +109,13 @@ export default function PrivacyPolicyEn() {
           order to show relevant ads, including:
         </p>
         <ul>
-          <li>Device advertising identifiers (e.g. IDFA on iOS, GAID on Android)</li>
-          <li>Approximate IP address and geographic location at country/region level</li>
+          <li>
+            Device advertising identifiers (e.g. IDFA on iOS, GAID on Android)
+          </li>
+          <li>
+            Approximate IP address and geographic location at country/region
+            level
+          </li>
           <li>Device type, operating system, and language settings</li>
           <li>Interactions with displayed advertisements</li>
         </ul>
@@ -136,18 +141,17 @@ export default function PrivacyPolicyEn() {
         <h2>Content and intellectual property</h2>
 
         <p>
-          All content available in the App — including greeting messages,
-          texts, visual styles, and graphic design — is created with the
-          assistance of artificial intelligence and is the exclusive property
-          of{" "}
+          All content available in the App — including greeting messages, texts,
+          visual styles, and graphic design — is created with the assistance of
+          artificial intelligence and is the exclusive property of{" "}
           <strong className="light">Pipe Digital SRL</strong>. This content is
           protected by applicable copyright law.
         </p>
         <p>
           Users may customise the text and style of greeting cards within the
-          App and export the result as an image (JPG file) for personal use
-          and sharing. Pipe Digital SRL does not claim any rights over the
-          personal modifications users add to their own exports.
+          App and export the result as an image (JPG file) for personal use and
+          sharing. Pipe Digital SRL does not claim any rights over the personal
+          modifications users add to their own exports.
         </p>
         <p>
           Unauthorised commercial use of the App's original content is
@@ -157,8 +161,8 @@ export default function PrivacyPolicyEn() {
         <h2>Users under 18</h2>
 
         <p>
-          The Mesaje din Suflet app is available to any user, regardless of
-          age. Since the App does not collect personal data, there are no age
+          The Mesaje din Suflet app is available to any user, regardless of age.
+          Since the App does not collect personal data, there are no age
           restrictions on use and no parental consent is required from a data
           protection standpoint.
         </p>
@@ -190,7 +194,9 @@ export default function PrivacyPolicyEn() {
 
         <p>
           Questions regarding this Privacy Policy should be directed to{" "}
-          <a href="mailto:contact@pipedigital.md">contact@pipedigital.md</a>
+          <a href="mailto:contact@mesajedinsuflet.app">
+            contact@mesajedinsuflet.app
+          </a>
         </p>
       </div>
     </section>

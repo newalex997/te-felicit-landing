@@ -22,7 +22,7 @@ export default function ContactUsPageForm({
     event.preventDefault();
 
     const agreeChecked = event.currentTarget.elements.namedItem(
-      "agree-policy"
+      "agree-policy",
     ) as HTMLInputElement;
 
     if (isLoading || !agreeChecked.checked) return;
@@ -55,7 +55,7 @@ export default function ContactUsPageForm({
     }
   }
 
-  const SubmitSuccesScreen = <p>{translations.submitSuccess}</p>;
+  const submitSuccessContent = <p>{translations.submitSuccess}</p>;
 
   return (
     <form onSubmit={onSubmit}>
@@ -81,7 +81,7 @@ export default function ContactUsPageForm({
           />
           <label className="disclaimer" htmlFor="agree-policy">
             {translations.agreeTerms}
-            <Link href="/privacy-policy" target="_blank">
+            <Link href={`/${locale}/privacy-policy`} target="_blank">
               {translations.privacyPolicy}
             </Link>
             {translations.agreeTermsSuffix}
@@ -95,7 +95,7 @@ export default function ContactUsPageForm({
           <ul className="actions">
             <li>
               <button
-                className="button submit"
+                className="button submit-form"
                 type="submit"
                 disabled={isLoading}
               >
@@ -105,7 +105,7 @@ export default function ContactUsPageForm({
           </ul>
         </Fragment>
       ) : (
-        SubmitSuccesScreen
+        submitSuccessContent
       )}
     </form>
   );

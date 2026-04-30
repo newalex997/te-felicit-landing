@@ -12,15 +12,15 @@ export const AppFooter = async ({ locale }: { locale: Locale }) => {
         <ul className="menu">
           <li>&copy; {footer.copyright}</li>
           <li>
-            <Link href="/terms-and-conditions">
+            <Link href={`/${locale}/terms-and-conditions`}>
               {footer.termsAndConditions}
             </Link>
           </li>
           <li>
-            <Link href="/privacy-policy">{footer.privacyPolicy}</Link>
+            <Link href={`/${locale}/privacy-policy`}>{footer.privacyPolicy}</Link>
           </li>
           <li>
-            <Link href="/contact-us">{footer.contactUs}</Link>
+            <Link href={`/${locale}/contact-us`}>{footer.contactUs}</Link>
           </li>
         </ul>
 

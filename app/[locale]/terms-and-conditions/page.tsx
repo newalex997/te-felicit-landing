@@ -1,4 +1,4 @@
-import { Fragment, useMemo } from "react";
+import { Fragment } from "react";
 import { Locale } from "@/i18n-config";
 import { AppHeader } from "../components/AppHeader";
 import EnPage from "./en";
@@ -10,16 +10,8 @@ export default function TermsAndConditionsPage({
 }: {
   params: { locale: Locale };
 }) {
-  const ContentByLocale = useMemo(() => {
-    switch (params.locale) {
-      case "ro":
-        return RoPage;
-      case "ru":
-        return RuPage;
-      default:
-        return EnPage;
-    }
-  }, [params.locale]);
+  const contentByLocale = { ro: RoPage, ru: RuPage, en: EnPage };
+  const ContentByLocale = contentByLocale[params.locale] ?? EnPage;
 
   return (
     <Fragment>

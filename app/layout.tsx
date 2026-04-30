@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   openGraph: {
-    images: "https://pipework.md/images/banner_2_en.png",
+    images: "https://mesajedinsuflet.app/images/banner_2_en.png",
   },
 };
 
@@ -14,10 +14,10 @@ export default function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Locale };
+  params: { locale: Locale };
 }>) {
   return (
-    <html lang={params.lang}>
+    <html lang={params.locale}>
       <body className="is-preload">
         {children}
         <Script src="/scripts/responsive.js" strategy="beforeInteractive" />

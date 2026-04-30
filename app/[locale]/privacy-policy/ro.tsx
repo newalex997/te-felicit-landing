@@ -32,10 +32,13 @@ export default function PrivacyPolicyRo() {
         <h2>Ce date colectăm</h2>
 
         <p>
-          Aplicația Mesaje din Suflet <strong className="light">nu colectează nicio dată
-          cu caracter personal</strong> a utilizatorilor. Nu este necesară crearea unui
-          cont, autentificarea sau furnizarea oricăror informații personale
-          pentru a utiliza Aplicația.
+          Aplicația Mesaje din Suflet{" "}
+          <strong className="light">
+            nu colectează nicio dată cu caracter personal
+          </strong>{" "}
+          a utilizatorilor. Nu este necesară crearea unui cont, autentificarea
+          sau furnizarea oricăror informații personale pentru a utiliza
+          Aplicația.
         </p>
         <p>
           Conținutul cardurilor de felicitare (mesaje, stiluri vizuale) este
@@ -65,14 +68,16 @@ export default function PrivacyPolicyRo() {
             Detectarea problemelor tehnice și remedierea lor rapidă.
           </li>
           <li>
-            <strong className="light">Dezvoltarea de funcționalități noi.</strong>{" "}
+            <strong className="light">
+              Dezvoltarea de funcționalități noi.
+            </strong>{" "}
             Luarea de decizii informate privind îmbunătățirile viitoare ale
             Aplicației, pe baza tiparelor de utilizare anonime.
           </li>
         </ul>
         <p>
-          Aceste date nu sunt utilizate în scopuri de marketing, nu sunt
-          vândute sau transferate către terți în scop comercial.
+          Aceste date nu sunt utilizate în scopuri de marketing, nu sunt vândute
+          sau transferate către terți în scop comercial.
         </p>
 
         <h2>Google Analytics</h2>
@@ -106,13 +111,21 @@ export default function PrivacyPolicyRo() {
         <p>
           Aplicația afișează reclame banner furnizate de rețele de publicitate
           terțe, cel mai probabil Google Ads (Google AdMob). Aceste rețele pot
-          colecta automat anumite date de pe dispozitivul dumneavoastră pentru
-          a afișa reclame relevante, inclusiv:
+          colecta automat anumite date de pe dispozitivul dumneavoastră pentru a
+          afișa reclame relevante, inclusiv:
         </p>
         <ul>
-          <li>Identificatori de publicitate ai dispozitivului (de ex. IDFA pe iOS, GAID pe Android)</li>
-          <li>Adresa IP aproximativă și localizarea geografică la nivel de țară/regiune</li>
-          <li>Tipul dispozitivului, sistemul de operare și setările de limbă</li>
+          <li>
+            Identificatori de publicitate ai dispozitivului (de ex. IDFA pe iOS,
+            GAID pe Android)
+          </li>
+          <li>
+            Adresa IP aproximativă și localizarea geografică la nivel de
+            țară/regiune
+          </li>
+          <li>
+            Tipul dispozitivului, sistemul de operare și setările de limbă
+          </li>
           <li>Interacțiunile cu reclamele afișate</li>
         </ul>
         <p>
@@ -141,8 +154,8 @@ export default function PrivacyPolicyRo() {
           Tot conținutul disponibil în Aplicație — inclusiv mesajele de
           felicitare, textele, stilurile vizuale și designul grafic — este creat
           cu ajutorul inteligenței artificiale și reprezintă proprietatea
-          exclusivă a <strong className="light">Pipe Digital SRL</strong>.
-          Acest conținut este protejat de legislația privind drepturile de autor
+          exclusivă a <strong className="light">Pipe Digital SRL</strong>. Acest
+          conținut este protejat de legislația privind drepturile de autor
           aplicabilă.
         </p>
         <p>
@@ -180,7 +193,8 @@ export default function PrivacyPolicyRo() {
         <p>
           Imaginile exportate de utilizatori (fișierele JPG generate în
           Aplicație) sunt salvate local pe dispozitivul utilizatorului și sunt
-          responsabilitatea acestuia în ceea ce privește distribuirea ulterioară.
+          responsabilitatea acestuia în ceea ce privește distribuirea
+          ulterioară.
         </p>
 
         <h2>Modificări aduse Politicii de Confidențialitate</h2>
@@ -197,7 +211,9 @@ export default function PrivacyPolicyRo() {
         <p>
           Întrebările legate de Politica de Confidențialitate sunt adresate la
           adresa{" "}
-          <a href="mailto:contact@pipedigital.md">contact@pipedigital.md</a>
+          <a href="mailto:contact@mesajedinsuflet.app">
+            contact@mesajedinsuflet.app
+          </a>
         </p>
       </div>
     </section>

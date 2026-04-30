@@ -7,8 +7,7 @@ import { i18n } from "./i18n-config";
 function getLocale(request: NextRequest) {
   let languages = [];
 
-  // @ts-ignore locales are readonly
-  const locales: string[] = i18n.locales;
+  const locales = i18n.locales as unknown as string[];
   const previousLocale = request.cookies.get("NEXT_LOCALE");
 
   if (previousLocale) {
