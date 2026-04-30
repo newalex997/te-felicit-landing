@@ -1,1 +1,1 @@
-Nextjs web landing page app for Pipe Work mobile app
+Nextjs web landing page app for Mesaje din Suflet mobile app
