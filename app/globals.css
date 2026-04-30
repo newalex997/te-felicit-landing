@@ -1949,9 +1949,8 @@ button,
 	-webkit-transition: border-color 0.2s ease;
 	-ms-transition: border-color 0.2s ease;
 	transition: border-color 0.2s ease;
-	background-color: #01a081;
 	border: solid 1px !important;
-	border-color: rgba(255, 255, 255, 0.15) !important;
+	border-color: rgba(255, 255, 255, 0.5) !important;
 	border-radius: 3em;
 	color: #ffffff !important;
 	cursor: pointer;
@@ -2249,7 +2248,7 @@ form>.fields>.field.quarter {
 }
 
 label {
-	color: #1d1d1d;
+	color: #ffffff;
 	font-weight: bold;
 	line-height: 1.5;
 	margin: 0 0 0.7em 0;
@@ -2353,7 +2352,7 @@ input[type="radio"] {
 input[type="checkbox"]+label,
 input[type="radio"]+label {
 	text-decoration: none;
-	color: #1d1d1d;
+	color: rgba(255, 255, 255, 0.55);
 	cursor: pointer;
 	display: inline-block;
 	font-size: 1em;
@@ -3162,12 +3161,11 @@ table.alt tfoot {
 }
 
 .wrapper.style1 {
-	background-color: #f6c45d;
-	color: #2c2c2d;
+	background-color: #5e42a6;
 }
 
 .wrapper.style1 h1 {
-	color: #212529 !important;
+	color: #ffffff !important;
 }
 
 
@@ -3846,19 +3844,16 @@ body.is-preload #sidebar nav ul li {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgb(246 196 93 / 85%);
+		background: #7c68eeb0;
 	}
 
 }
 
 
 #intro.homepage-intro {
-	background: url("/images/jimmy-nilsson-masth-worker-image.jpg") center/cover no-repeat;
+	background: url("/images/bg-overlay.png") center/cover no-repeat;
 }
 
-#intro.becomeprofessional-intro {
-	background: url("/images/henry-co-worker-image.jpg") center/cover no-repeat;
-}
 
 #download_app .links-wrap {
 	display: flex;
@@ -3886,7 +3881,8 @@ body.is-preload #sidebar nav ul li {
 
 
 #intro p {
-	font-size: 1.25em;
+	font-size: 1.5em;
+	color: rgba(255, 255, 255, 0.55);
 }
 
 #how-it-works {

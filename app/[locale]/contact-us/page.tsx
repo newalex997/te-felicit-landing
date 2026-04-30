@@ -15,7 +15,7 @@ export default async function ContactUsPage({
     <Fragment>
       <AppHeader locale={params.locale} />
       <div id="wrapper">
-        <section id="main" className="wrapper style1 fade-up">
+        <section id="main" className="wrapper style1">
           <div className="inner">
             <h1>{dictionary.contactUs.title}</h1>
             <p>{dictionary.contactUs.description}</p>

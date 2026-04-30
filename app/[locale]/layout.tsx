@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "@/get-dictionary";
 import { AppFooter } from "./components/Footer";
-import "./components.css";
 
 export async function generateMetadata({
   params,

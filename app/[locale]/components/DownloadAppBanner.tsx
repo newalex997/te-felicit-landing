@@ -7,13 +7,9 @@ import playMarket from "@/public/icons/android-store.svg";
 
 type DownloadAppBannerProps = {
   locale: Locale;
-  variant?: "primary" | "secondary";
 };
 
-export const DownloadAppBanner = async ({
-  locale,
-  variant,
-}: DownloadAppBannerProps) => {
+export const DownloadAppBanner = async ({ locale }: DownloadAppBannerProps) => {
   const dictionary = await getDictionary(locale);
 
   return (
@@ -51,11 +47,7 @@ export const DownloadAppBanner = async ({
         </div>
       </div>
       <Image
-        src={
-          variant === "primary"
-            ? "/images/phone_mockup_2.png"
-            : "/images/phone_mockup.png"
-        }
+        src="/images/phone_mockup.png"
         alt="intro ilustration"
         className="ilustration"
         width={282}

@@ -51,7 +51,7 @@ export default async function Home({ params }: HomeProps) {
             </div>
           </section>
         </section>
-        <DownloadAppBanner locale={params.locale} variant="primary" />
+        <DownloadAppBanner locale={params.locale} />
       </div>
     </Fragment>
   );
