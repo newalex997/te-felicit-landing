@@ -6,7 +6,7 @@ export default function TermsAndConditionsEn() {
           Terms and Conditions of Use of the Mesaje din Suflet Application
         </h1>
 
-        <p>Created / Effective date: 30.04.2025</p>
+        <p>Created / Effective date: 30.04.2026</p>
 
         <h2>Contents</h2>
 
@@ -28,10 +28,7 @@ export default function TermsAndConditionsEn() {
           ("the App"), made available by{" "}
           <strong className="light">Pipe Digital SRL</strong>, IDNO
           1024600085215, mun. Chișinău, e-mail:{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
-          .
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>.
         </p>
         <p>
           By using the App, you confirm that you have read, understood, and
@@ -209,10 +206,7 @@ export default function TermsAndConditionsEn() {
         <p>
           For any questions or concerns regarding these Terms and Conditions,
           you can reach us at:{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
-          .
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>.
         </p>
         <p>
           If you wish to report issues related to your rights as a user or

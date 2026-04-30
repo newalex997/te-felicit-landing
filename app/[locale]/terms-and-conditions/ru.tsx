@@ -6,7 +6,7 @@ export default function TermsAndConditionsRu() {
           Условия использования приложения Mesaje din Suflet
         </h1>
 
-        <p>Дата создания / Дата вступления в силу: 30.04.2025</p>
+        <p>Дата создания / Дата вступления в силу: 30.04.2026</p>
 
         <h2>Содержание</h2>
 
@@ -28,10 +28,7 @@ export default function TermsAndConditionsRu() {
           приложения Mesaje din Suflet («Приложение»), предоставляемого
           компанией <strong className="light">Pipe Digital SRL</strong>, IDNO
           1024600085215, мун. Кишинёв, e-mail:{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
-          .
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>.
         </p>
         <p>
           Используя Приложение, вы подтверждаете, что ознакомились, поняли и
@@ -226,10 +223,7 @@ export default function TermsAndConditionsRu() {
         <p>
           По любым вопросам или замечаниям, касающимся настоящих Условий
           использования, вы можете обратиться к нам по адресу:{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
-          .
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>.
         </p>
         <p>
           Если вы хотите сообщить о нарушении своих прав как пользователя или

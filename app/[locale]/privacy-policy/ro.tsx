@@ -4,7 +4,7 @@ export default function PrivacyPolicyRo() {
       <div className="inner">
         <h1 className="major">Politica de confidențialitate</h1>
 
-        <p>Data creării/Data intrării în vigoare: 30.04.2025</p>
+        <p>Data creării/Data intrării în vigoare: 30.04.2026</p>
 
         <h2>Cuprins</h2>
 
@@ -211,9 +211,7 @@ export default function PrivacyPolicyRo() {
         <p>
           Întrebările legate de Politica de Confidențialitate sunt adresate la
           adresa{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>
         </p>
       </div>
     </section>

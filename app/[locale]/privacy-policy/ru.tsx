@@ -4,7 +4,7 @@ export default function PrivacyPolicyRu() {
       <div className="inner">
         <h1 className="major">Политика конфиденциальности</h1>
 
-        <p>Дата создания / Дата вступления в силу: 30.04.2025</p>
+        <p>Дата создания / Дата вступления в силу: 30.04.2026</p>
 
         <h2>Содержание</h2>
 
@@ -206,9 +206,7 @@ export default function PrivacyPolicyRu() {
         <p>
           Вопросы, связанные с Политикой конфиденциальности, направляйте по
           адресу{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>
         </p>
       </div>
     </section>

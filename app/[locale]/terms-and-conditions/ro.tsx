@@ -6,7 +6,7 @@ export default function TermsAndConditionsRo() {
           Termeni și Condiții de utilizare ale aplicației Mesaje din Suflet
         </h1>
 
-        <p>Data creării/Data intrării în vigoare: 30.04.2025</p>
+        <p>Data creării/Data intrării în vigoare: 30.04.2026</p>
 
         <h2>Cuprins</h2>
 
@@ -28,10 +28,7 @@ export default function TermsAndConditionsRo() {
           („Aplicația"), pusă la dispoziție de{" "}
           <strong className="light">Pipe Digital SRL</strong>, IDNO
           1024600085215, mun. Chișinău, e-mail:{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
-          .
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>.
         </p>
         <p>
           Prin utilizarea Aplicației, confirmați că ați citit, înțeles și
@@ -223,10 +220,7 @@ export default function TermsAndConditionsRo() {
         <p>
           Pentru orice întrebări sau sesizări legate de acești Termeni și
           Condiții, ne puteți contacta la adresa de e-mail:{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
-          .
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>.
         </p>
         <p>
           În cazul în care doriți să raportați aspecte legate de drepturile

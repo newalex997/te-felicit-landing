@@ -4,7 +4,7 @@ export default function PrivacyPolicyEn() {
       <div className="inner">
         <h1 className="major">Privacy Policy</h1>
 
-        <p>Created / Effective date: 30.04.2025</p>
+        <p>Created / Effective date: 30.04.2026</p>
 
         <h2>Contents</h2>
 
@@ -194,9 +194,7 @@ export default function PrivacyPolicyEn() {
 
         <p>
           Questions regarding this Privacy Policy should be directed to{" "}
-          <a href="mailto:contact@mesajedinsuflet.app">
-            contact@mesajedinsuflet.app
-          </a>
+          <a href="mailto:alexapostol.m@gmail.com">alexapostol.m@gmail.com</a>
         </p>
       </div>
     </section>
