@@ -33,7 +33,7 @@ export const DownloadAppBanner = async ({ locale }: DownloadAppBannerProps) => {
           </Link>
 
           <Link
-            href="https://apps.apple.com/app/mesaje-din-suflet/id6745302249"
+            href="https://apps.apple.com/us/app/mesaje-din-suflet/id6761735730"
             rel="noreferrer"
             target="_blank"
           >
