@@ -91,9 +91,14 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
             </span>
           ))}
         </div>
-        <span className="dash-btn" onClick={handleDownload}>
-          Download JSON
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <span style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.45)", fontFamily: "monospace", letterSpacing: "0.03em" }}>
+            {fileName}
+          </span>
+          <span className="dash-btn" onClick={handleDownload}>
+            Download JSON
+          </span>
+        </div>
       </div>
 
       {/* Mood pills */}
