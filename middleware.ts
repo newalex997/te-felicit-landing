@@ -19,7 +19,7 @@ function getLocale(request: NextRequest) {
 
     // Use negotiator and intl-localematcher to get best locale
     languages = new Negotiator({ headers: negotiatorHeaders }).languages(
-      locales
+      locales,
     );
   }
 
@@ -31,7 +31,7 @@ function getLocale(request: NextRequest) {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const actualLocale = i18n.locales.find(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
   // Redirect if there is no locale
@@ -40,8 +40,8 @@ export function middleware(request: NextRequest) {
     const response = NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-        request.url
-      )
+        request.url,
+      ),
     );
 
     response.cookies.set("NEXT_LOCALE", locale, { path: "/" });
@@ -58,5 +58,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
-  matcher: ["/((?!api|_next/static|_next/image|scripts|images|favicon.ico).*)"],
+  matcher: [
+    "/((?!api|download-me|_next/static|_next/image|scripts|images|favicon.ico).*)",
+  ],
 };
