@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GreetingJson, Message } from "./types";
 import GreetingCard from "./GreetingCard";
 import EditModal from "./EditModal";
@@ -17,6 +17,11 @@ type EditTarget = {
   msgIndex: number;
 };
 
+type TextConfigEntry = {
+  id: number;
+  config: { message: { color: string; fontSize: number; position: string; textEffect?: string }; slogan: { color: string; fontSize: number; position: string; textEffect?: string } };
+};
+
 export default function CardGrid({ data, onChange, fileName }: Props) {
   const timeKeys = Object.keys(data);
   const [activeTime, setActiveTime] = useState(timeKeys[0]);
@@ -24,6 +29,18 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
     () => Object.keys(data[timeKeys[0]].moods)[0]
   );
   const [editing, setEditing] = useState<EditTarget | null>(null);
+  const [textConfigs, setTextConfigs] = useState<TextConfigEntry[]>([]);
+
+  useEffect(() => {
+    fetch("/api/greeting/text-configs")
+      .then((r) => r.json())
+      .then((data) => { if (Array.isArray(data)) setTextConfigs(data); })
+      .catch(() => {});
+  }, []);
+
+  function resolveConfig(textConfigId: number) {
+    return textConfigs.find((c) => c.id === textConfigId)?.config;
+  }
 
   const currentTimeData = data[activeTime];
   const moodKeys = Object.keys(currentTimeData.moods);
@@ -126,6 +143,7 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
             <GreetingCard
               message={msg}
               imageUrl={imageUrls[i % imageUrls.length]}
+              config={resolveConfig(msg.textConfigId)}
               onClick={() => setEditing({ timeKey: activeTime, moodKey: activeMood, msgIndex: i })}
             />
             <div
@@ -162,6 +180,8 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
           initial={data[editing.timeKey].moods[editing.moodKey].messages[editing.msgIndex]}
           imageUrl={editImageUrl}
           label={`${editing.timeKey} / ${editing.moodKey} / #${editing.msgIndex + 1}`}
+          mood={editing.moodKey}
+          holiday={fileName.replace(/\.json$/i, "")}
           onSave={handleSave}
           onClose={() => setEditing(null)}
         />

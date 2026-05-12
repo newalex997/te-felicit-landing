@@ -1,27 +1,61 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Message } from "./types";
-import { TEXT_CONFIGS } from "./constants";
 import GreetingCard from "./GreetingCard";
+
+type TextBlockConfig = {
+  color: string;
+  fontSize: number;
+  position: string;
+  textEffect?: string;
+};
+
+type TextConfigEntry = {
+  id: number;
+  config: { message: TextBlockConfig; slogan: TextBlockConfig };
+};
 
 interface Props {
   initial: Message;
   imageUrl?: string;
   label: string;
+  mood?: string;
+  holiday?: string;
   onSave: (msg: Message) => void;
   onClose: () => void;
 }
 
-export default function EditModal({ initial, imageUrl, label, onSave, onClose }: Props) {
+export default function EditModal({
+  initial,
+  imageUrl,
+  label,
+  mood,
+  holiday,
+  onSave,
+  onClose,
+}: Props) {
   const [draft, setDraft] = useState<Message>({
     ...initial,
     slogans: [...initial.slogans],
   });
   const [newSlogan, setNewSlogan] = useState("");
   const [previewSloganIdx, setPreviewSloganIdx] = useState(0);
+  const [textConfigs, setTextConfigs] = useState<TextConfigEntry[]>([]);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState<string | null>(null);
 
-  const clampedIdx = Math.min(previewSloganIdx, Math.max(0, draft.slogans.length - 1));
+  useEffect(() => {
+    fetch("/api/greeting/text-configs")
+      .then((r) => r.json())
+      .then((data) => { if (Array.isArray(data)) setTextConfigs(data); })
+      .catch(() => {});
+  }, []);
+
+  const clampedIdx = Math.min(
+    previewSloganIdx,
+    Math.max(0, draft.slogans.length - 1),
+  );
   const previewMessage = {
     ...draft,
     slogans: draft.slogans.length > 0 ? [draft.slogans[clampedIdx]] : [],
@@ -34,8 +68,49 @@ export default function EditModal({ initial, imageUrl, label, onSave, onClose }:
   }
 
   function removeSlogan(i: number) {
-    if (previewSloganIdx >= i && previewSloganIdx > 0) setPreviewSloganIdx((p) => p - 1);
-    setDraft((d) => ({ ...d, slogans: d.slogans.filter((_, idx) => idx !== i) }));
+    if (previewSloganIdx >= i && previewSloganIdx > 0)
+      setPreviewSloganIdx((p) => p - 1);
+    setDraft((d) => ({
+      ...d,
+      slogans: d.slogans.filter((_, idx) => idx !== i),
+    }));
+  }
+
+  async function handleEnhance() {
+    setAiLoading(true);
+    setAiError(null);
+    try {
+      const res = await fetch("/api/greeting/enhance-text", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: draft.text,
+          slogans: draft.slogans,
+          textConfigId: draft.textConfigId,
+          mood,
+          holiday,
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      const data = await res.json();
+      setDraft((d) => ({
+        ...d,
+        text: data.message,
+        slogans: data.slogans,
+        textConfigId: data.textConfigId,
+      }));
+      setPreviewSloganIdx(0);
+    } catch {
+      setAiError("AI enhancement failed. Try again.");
+    } finally {
+      setAiLoading(false);
+    }
+  }
+
+  function configLabel(entry: TextConfigEntry) {
+    const m = entry.config.message;
+    const s = entry.config.slogan;
+    return `#${entry.id}  msg ${m.color} ${m.position}${m.textEffect ? ` [${m.textEffect}]` : ""}  ·  slogan ${s.color} ${s.position}${s.textEffect ? ` [${s.textEffect}]` : ""}`;
   }
 
   return (
@@ -65,25 +140,48 @@ export default function EditModal({ initial, imageUrl, label, onSave, onClose }:
         .em-empty { font-size: 12px; color: rgba(255,255,255,0.2); line-height: 28px; }
         .em-input { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.9); font-size: 12px; padding: 7px 11px; font-family: inherit; transition: border-color 0.15s; }
         .em-input:focus { outline: none; border-color: rgba(255,255,255,0.3); }
+        .em-select { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.9); font-size: 12px; padding: 7px 11px; font-family: monospace; transition: border-color 0.15s; cursor: pointer; }
+        .em-select:focus { outline: none; border-color: rgba(255,255,255,0.3); }
+        .em-select option { background: #1e1e36; color: rgba(255,255,255,0.9); }
         .em-slogan-inline-input { flex: 1; min-width: 140px; }
-        .em-footer { display: flex; justify-content: flex-end; gap: 10px; padding: 20px 32px; border-top: 1px solid rgba(255,255,255,0.07); }
+        .em-footer { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 20px 32px; border-top: 1px solid rgba(255,255,255,0.07); }
+        .em-ai-btn { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #a78bfa; border: 1px solid rgba(167,139,250,0.35); border-radius: 8px; padding: 8px 16px; background: rgba(167,139,250,0.07); transition: all 0.15s; user-select: none; }
+        .em-ai-btn:hover:not(:disabled) { background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.6); }
+        .em-ai-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .em-ai-error { font-size: 11px; color: #e74c3c; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .em-spinner { width: 13px; height: 13px; border: 2px solid rgba(167,139,250,0.3); border-top-color: #a78bfa; border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0; }
       `}</style>
 
-      <div className="em-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div
+        className="em-overlay"
+        onClick={(e) => e.target === e.currentTarget && onClose()}
+      >
         <div className="em-modal">
-
           <div className="em-header">
             <div>
               <p className="em-header-title">Edit message</p>
               <span className="em-header-label">{label}</span>
             </div>
-            <span className="em-close" onClick={onClose}>×</span>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <button className="em-ai-btn" onClick={handleEnhance} disabled={aiLoading}>
+                {aiLoading ? <span className="em-spinner" /> : <span>✦</span>}
+                {aiLoading ? "Enhancing…" : "Enhance with AI"}
+              </button>
+              {aiError && <span className="em-ai-error">{aiError}</span>}
+              <span className="em-close" onClick={onClose}>×</span>
+            </div>
           </div>
 
           <div className="em-body">
             <div className="em-preview-col">
               <span className="em-field-label">Preview</span>
-              <GreetingCard message={previewMessage} imageUrl={imageUrl} onClick={() => {}} />
+              <GreetingCard
+                message={previewMessage}
+                imageUrl={imageUrl}
+                config={textConfigs.find((c) => c.id === draft.textConfigId)?.config}
+                onClick={() => {}}
+              />
               {draft.slogans.length > 1 && (
                 <div className="em-slogan-picks">
                   {draft.slogans.map((sl, i) => (
@@ -105,31 +203,54 @@ export default function EditModal({ initial, imageUrl, label, onSave, onClose }:
                 <textarea
                   className="em-textarea"
                   value={draft.text}
-                  onChange={(e) => setDraft((d) => ({ ...d, text: e.target.value }))}
+                  onChange={(e) =>
+                    setDraft((d) => ({ ...d, text: e.target.value }))
+                  }
                 />
               </div>
 
               <div>
-                <span className="em-field-label">Text config ID</span>
-                <input
-                  type="number"
-                  className="em-input"
-                  style={{ width: 80 }}
-                  min={1}
-                  max={Object.keys(TEXT_CONFIGS).length}
+                <span className="em-field-label">Text config</span>
+                <select
+                  className="em-select"
                   value={draft.textConfigId}
-                  onChange={(e) => setDraft((d) => ({ ...d, textConfigId: Number(e.target.value) }))}
-                />
+                  onChange={(e) =>
+                    setDraft((d) => ({
+                      ...d,
+                      textConfigId: Number(e.target.value),
+                    }))
+                  }
+                >
+                  {textConfigs.length === 0 && (
+                    <option value={draft.textConfigId}>
+                      #{draft.textConfigId}
+                    </option>
+                  )}
+                  {textConfigs.map((entry) => (
+                    <option key={entry.id} value={entry.id}>
+                      {configLabel(entry)}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>
-                <span className="em-field-label">Slogans ({draft.slogans.length})</span>
+                <span className="em-field-label">
+                  Slogans ({draft.slogans.length})
+                </span>
                 <div className="em-slogans">
-                  {draft.slogans.length === 0 && <span className="em-empty">No slogans yet</span>}
+                  {draft.slogans.length === 0 && (
+                    <span className="em-empty">No slogans yet</span>
+                  )}
                   {draft.slogans.map((sl, i) => (
                     <span key={i} className="em-slogan-tag">
                       {sl}
-                      <span className="em-slogan-remove" onClick={() => removeSlogan(i)}>×</span>
+                      <span
+                        className="em-slogan-remove"
+                        onClick={() => removeSlogan(i)}
+                      >
+                        ×
+                      </span>
                     </span>
                   ))}
                   <input
@@ -137,7 +258,9 @@ export default function EditModal({ initial, imageUrl, label, onSave, onClose }:
                     placeholder="Add slogan…"
                     value={newSlogan}
                     onChange={(e) => setNewSlogan(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addSlogan())}
+                    onKeyDown={(e) =>
+                      e.key === "Enter" && (e.preventDefault(), addSlogan())
+                    }
                   />
                 </div>
               </div>
@@ -145,10 +268,18 @@ export default function EditModal({ initial, imageUrl, label, onSave, onClose }:
           </div>
 
           <div className="em-footer">
-            <button className="button small" onClick={onClose}>Cancel</button>
-            <button className="button primary small" onClick={() => onSave(draft)}>Save</button>
+            <div style={{ display: "flex", gap: 10 }}>
+              <button className="button small" onClick={onClose}>
+                Cancel
+              </button>
+              <button
+                className="button primary small"
+                onClick={() => onSave(draft)}
+              >
+                Save
+              </button>
+            </div>
           </div>
-
         </div>
       </div>
     </>

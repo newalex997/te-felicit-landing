@@ -1,9 +1,19 @@
 import { Message } from "./types";
-import { TEXT_CONFIGS, TextEffect } from "./constants";
+import { TextEffect } from "./constants";
+
+type TextBlockConfig = {
+  color: string;
+  fontSize: number;
+  position: string;
+  textEffect?: string;
+};
+
+type TextConfig = { message: TextBlockConfig; slogan: TextBlockConfig };
 
 interface Props {
   message: Message;
   imageUrl?: string;
+  config?: TextConfig;
   onClick: () => void;
 }
 
@@ -33,7 +43,7 @@ function contrastColor(hex: string): string {
 }
 
 // Matches computeTextEffectStyle + StrokeText offsets in useTextBlockState.ts / StrokeText.tsx
-function textShadow(effect: TextEffect | undefined, color: string): string {
+function textShadow(effect: string | undefined, color: string): string {
   const c = contrastColor(color.slice(0, 7));
   if (effect === TextEffect.BORDER) {
     // Replicates STROKE_OFFSETS at ±1.5px from StrokeText.tsx
@@ -55,8 +65,8 @@ function textShadow(effect: TextEffect | undefined, color: string): string {
   return `0 1px 3px ${c}`; // TextEffect.NONE
 }
 
-export default function GreetingCard({ message, imageUrl, onClick }: Props) {
-  const cfg = TEXT_CONFIGS[message.textConfigId as keyof typeof TEXT_CONFIGS];
+export default function GreetingCard({ message, imageUrl, config, onClick }: Props) {
+  const cfg = config;
   // Font sizes are designed for 850px card width — scale via cqw
   const cqw = (px: number) => `${((px / 850) * 100).toFixed(2)}cqw`;
 
@@ -65,7 +75,7 @@ export default function GreetingCard({ message, imageUrl, onClick }: Props) {
     text: string;
     color: string;
     fontSize: number;
-    effect?: TextEffect;
+    effect?: string;
   };
   const groups = new Map<string, Block[]>();
   if (cfg) {
