@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GreetingJson, Message } from "./types";
 import GreetingCard from "./GreetingCard";
 import EditModal from "./EditModal";
@@ -19,22 +19,40 @@ type EditTarget = {
 
 type TextConfigEntry = {
   id: number;
-  config: { message: { color: string; fontSize: number; position: string; textEffect?: string }; slogan: { color: string; fontSize: number; position: string; textEffect?: string } };
+  config: {
+    message: {
+      color: string;
+      fontSize: number;
+      position: string;
+      textEffect?: string;
+    };
+    slogan: {
+      color: string;
+      fontSize: number;
+      position: string;
+      textEffect?: string;
+    };
+  };
 };
 
 export default function CardGrid({ data, onChange, fileName }: Props) {
   const timeKeys = Object.keys(data);
   const [activeTime, setActiveTime] = useState(timeKeys[0]);
   const [activeMood, setActiveMood] = useState(
-    () => Object.keys(data[timeKeys[0]].moods)[0]
+    () => Object.keys(data[timeKeys[0]].moods)[0],
   );
   const [editing, setEditing] = useState<EditTarget | null>(null);
   const [textConfigs, setTextConfigs] = useState<TextConfigEntry[]>([]);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetch("/api/greeting/text-configs")
       .then((r) => r.json())
-      .then((data) => { if (Array.isArray(data)) setTextConfigs(data); })
+      .then((data) => {
+        if (Array.isArray(data)) setTextConfigs(data);
+      })
       .catch(() => {});
   }, []);
 
@@ -56,19 +74,54 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
   function handleSave(msg: Message) {
     if (!editing) return;
     const next = structuredClone(data);
-    next[editing.timeKey].moods[editing.moodKey].messages[editing.msgIndex] = msg;
+    next[editing.timeKey].moods[editing.moodKey].messages[editing.msgIndex] =
+      msg;
     onChange(next);
     setEditing(null);
   }
 
   function handleDownload() {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/json",
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
     a.download = fileName;
     a.click();
     URL.revokeObjectURL(url);
+  }
+
+  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+
+    const context = fileName.replace(/\.json$/i, "");
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("context", context);
+    formData.append("mood", activeMood);
+    formData.append("partOfDay", activeTime);
+
+    setUploading(true);
+    setUploadError(null);
+    try {
+      const res = await fetch("/api/greeting/bg-image", {
+        method: "POST",
+        body: formData,
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json?.message ?? "Upload failed");
+
+      const next = structuredClone(data);
+      next[activeTime].moods[activeMood].imageUrls.push(json.url);
+      onChange(next);
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Upload failed");
+    } finally {
+      setUploading(false);
+    }
   }
 
   const editMoodData = editing
@@ -97,7 +150,12 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
 
       {/* Time-of-day tabs */}
       <div style={s.timeTabs}>
-        <div style={{ display: "flex", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+        <div
+          style={{
+            display: "flex",
+            borderBottom: "1px solid rgba(255,255,255,0.1)",
+          }}
+        >
           {timeKeys.map((key) => (
             <span
               key={key}
@@ -109,7 +167,15 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
           ))}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.45)", fontFamily: "monospace", letterSpacing: "0.03em" }}>
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 600,
+              color: "rgba(255,255,255,0.45)",
+              fontFamily: "monospace",
+              letterSpacing: "0.03em",
+            }}
+          >
             {fileName}
           </span>
           <span className="dash-btn" onClick={handleDownload}>
@@ -118,17 +184,38 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
         </div>
       </div>
 
-      {/* Mood pills */}
+      {/* Mood pills + upload */}
+      <input
+        ref={imageInputRef}
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        onChange={handleImageUpload}
+      />
       <div style={s.moodRow}>
-        {moodKeys.map((key) => (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {moodKeys.map((key) => (
+            <span
+              key={key}
+              className={`mood-btn${activeMood === key ? " active" : ""}`}
+              onClick={() => setActiveMood(key)}
+            >
+              {key}
+            </span>
+          ))}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+          {uploadError && (
+            <span style={{ fontSize: 11, color: "#ff6b6b" }}>{uploadError}</span>
+          )}
           <span
-            key={key}
-            className={`mood-btn${activeMood === key ? " active" : ""}`}
-            onClick={() => setActiveMood(key)}
+            className="dash-btn"
+            style={uploading ? { opacity: 0.5, pointerEvents: "none" } : undefined}
+            onClick={() => imageInputRef.current?.click()}
           >
-            {key}
+            {uploading ? "Uploading…" : "Upload Image"}
           </span>
-        ))}
+        </div>
       </div>
 
       {/* Stats */}
@@ -144,7 +231,13 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
               message={msg}
               imageUrl={imageUrls[i % imageUrls.length]}
               config={resolveConfig(msg.textConfigId)}
-              onClick={() => setEditing({ timeKey: activeTime, moodKey: activeMood, msgIndex: i })}
+              onClick={() =>
+                setEditing({
+                  timeKey: activeTime,
+                  moodKey: activeMood,
+                  msgIndex: i,
+                })
+              }
             />
             <div
               className="edit-hint"
@@ -168,7 +261,13 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
           </div>
         ))}
         {messages.length === 0 && (
-          <p style={{ color: "rgba(255,255,255,0.3)", fontSize: 14, gridColumn: "span 4" }}>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.3)",
+              fontSize: 14,
+              gridColumn: "span 4",
+            }}
+          >
             No messages in this mood.
           </p>
         )}
@@ -177,7 +276,11 @@ export default function CardGrid({ data, onChange, fileName }: Props) {
       {/* Edit modal */}
       {editing && (
         <EditModal
-          initial={data[editing.timeKey].moods[editing.moodKey].messages[editing.msgIndex]}
+          initial={
+            data[editing.timeKey].moods[editing.moodKey].messages[
+              editing.msgIndex
+            ]
+          }
           imageUrl={editImageUrl}
           label={`${editing.timeKey} / ${editing.moodKey} / #${editing.msgIndex + 1}`}
           mood={editing.moodKey}
@@ -200,8 +303,9 @@ const s: Record<string, React.CSSProperties> = {
   },
   moodRow: {
     display: "flex",
-    flexWrap: "wrap",
-    gap: 8,
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
     padding: "16px 32px 8px",
   },
   grid: {

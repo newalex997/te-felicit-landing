@@ -65,7 +65,12 @@ function textShadow(effect: string | undefined, color: string): string {
   return `0 1px 3px ${c}`; // TextEffect.NONE
 }
 
-export default function GreetingCard({ message, imageUrl, config, onClick }: Props) {
+export default function GreetingCard({
+  message,
+  imageUrl,
+  config,
+  onClick,
+}: Props) {
   const cfg = config;
   // Font sizes are designed for 850px card width — scale via cqw
   const cqw = (px: number) => `${((px / 850) * 100).toFixed(2)}cqw`;
