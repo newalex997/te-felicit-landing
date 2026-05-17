@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const IOS_URL = "https://apps.apple.com/us/app/mesaje-din-suflet/id6761735730";
 const ANDROID_URL =
   "https://play.google.com/store/apps/details?id=com.pipedigital.mesajedinsuflet";
-const FALLBACK_URL = "/";
+const FALLBACK_URL = "https://mesajedinsuflet.app";
 
 export async function GET(req: NextRequest) {
   const ua = req.headers.get("user-agent") ?? "";
